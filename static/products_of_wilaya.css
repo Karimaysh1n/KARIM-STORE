@@ -1,0 +1,399 @@
+header {
+  margin: 0;
+  background: #0f0f0f;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* توزيع: روابط يسار، بحث في الوسط */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial;
+}
+body {
+    background-color: #1F1E1C;
+}
+/* الروابط */
+.header_object {
+  display: flex;
+  gap: 10px;
+}
+
+.header_object a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header_object a:hover {
+  background: #33A1E0;
+  color: #000;
+  box-shadow: 0 0 8px #33A1E0;
+}
+
+/* شريط البحث */
+.search-bar {
+  flex: 1;                      /* ياخذ مساحة وسط الهيدر */
+  display: flex;
+  margin-left:350px;    /* في المنتصف */
+}
+
+.search-bar input {
+  width: 50%;                    /* نفس يوتيوب: نصف عرض الهيدر */
+  max-width: 500px;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  background: #121212;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: #444;
+}
+/* الصندوق اللي يطلع تحت البحث */
+#suggestions-box {
+  position: absolute;
+  top: 45px; /* تحت الشريط مباشرة */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: 500px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 0 0 12px 12px;
+  color: white;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#suggestions-box div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+#suggestions-box div:hover {
+  background: #333;
+}
+
+
+.ad-space {
+  width: 300px;
+  height: 250px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  border: 2px dashed #555;
+  font-size: 14px;
+}
+.flashed_message {
+  padding: 12px 18px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  position: relative;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* زر × */
+.flashed_message .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* الأنواع */
+.flashed_message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 6px solid #28a745;
+}
+
+.flashed_message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 6px solid #dc3545;
+}
+
+.flashed_message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-left: 6px solid #17a2b8;
+}
+
+.flashed_message.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffc107;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* القائمة */
+/* مكان القائمة */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* زر */
+.dropbtn {
+  background: #0f0f0f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+/* محتوى القائمة */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* المستطيل الكبير للولايات */
+.wilayas-box {
+  width: 900px;
+  height: 909px;
+  overflow-y: scroll;
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+  gap: 8px;
+}
+
+.wilayas-box a {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.wilayas-box a:hover {
+  background: #555;
+}
+
+/* عند الفتح */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+.dropdown.active .arrow {
+  transform: rotate(90deg); /* يقلب السهم */
+}
+#no_electronics {
+    color: #FF5200;
+    margin-left:660px;
+    margin-top:40px;
+    font-family:Arial;
+    font-size:50px;
+}
+#no_services {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:815px;
+}
+#no_cars {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_clothes {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_residences {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_houses {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_phones {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_furniture {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_gaming {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#no_decoration {
+    color: #FF5200;
+    font-family:Arial;
+    margin-top:80px;
+    margin-left:850px;
+}
+#hhhh{
+    color: #FF5200;
+    font-family:Arial;
+    font-size:40px;
+    margin-top:-00px;
+}
+h2 {
+    color: #FF5200;
+    font-family:Arial;
+    font-size:40px;
+    margin-top:-60px;
+}
+.see-more-container {
+    display: flex;
+    justify-content: flex-end; /* يجعل الزر في أقصى اليمين */
+    margin-bottom:20px;
+}
+
+.see-more-btn {
+    background-color: #1a1a1a;
+    color: white ;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background-color: #FF5200;
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: flex-start; /* يمكن تغييره center حسب رغبتك */
+}
+
+.product-card {
+    width: 290px;
+    height: 380px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #0F0F0C; /* الخلفية */
+    color: #FF5200; /* لون النص */
+    font-family: Arial, sans-serif;
+    margin-top:-10px;
+}
+
+.product-image {
+    flex: 3;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-details {
+    flex: 1;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+}
+
+.product-details h3 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.product-details p {
+    font-size: 15px;
+    margin: 0;
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* يعطي استدارة جميلة */
+}
+
+button:hover {
+    transform: scale(1.05); /* تكبير خفيف */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* ظل */
+    }

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>products of wilaya</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='products_of_wilaya.css') }}">
+</head>
+<body>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<header>
+    <!-- الروابط -->
+    <div class="header_object">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('sell') }}">Sell</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <!-- البحث -->
+    <form class="search-bar" method="GET" action="{{ url_for('search') }}">
+        <input type="text" id="searchInput" name="q" placeholder="Search" autocomplete="off">
+        <button type="submit">🔍</button>
+        <div id="suggestions-box"></div>
+    </form>
+
+    <!-- اختيار الولاية -->
+    <div class="dropdown">
+        <button class="dropbtn">
+            📍 إختر الولاية
+            <span class="arrow">⏵</span>
+        </button>
+        <div class="dropdown-content">
+            <div class="wilayas-box">
+                <a href="{{ url_for('products_of_wilaya', wilaya='أدرار') }}">أدرار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='الشلف') }}">الشلف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='الأغواط') }}">الأغواط</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='أم البواقي') }}">أم البواقي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='باتنة') }}">باتنة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='بجاية') }}">بجاية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='بسكرة') }}">بسكرة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='بشار') }}">بشار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='البليدة') }}">البليدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='البويرة') }}">البويرة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تمنراست') }}">تمنراست</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تبسة') }}">تبسة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تلمسان') }}">تلمسان</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تيارت') }}">تيارت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تيزي وزو') }}">تيزي وزو</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='الجزائر') }}">الجزائر</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='الجلفة') }}">الجلفة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='جيجل') }}">جيجل</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='سطيف') }}">سطيف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='سعيدة') }}">سعيدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='سكيكدة') }}">سكيكدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='سيدي بلعباس') }}">سيدي بلعباس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='عنابة') }}">عنابة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='قالمة') }}">قالمة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='قسنطينة') }}">قسنطينة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='المدية') }}">المدية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='مستغانم') }}">مستغانم</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='المسيلة') }}">المسيلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='معسكر') }}">معسكر</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ورقلة') }}">ورقلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='وهران') }}">وهران</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='البيض') }}">البيض</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='إليزي') }}">إليزي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='برج بوعريريج') }}">برج بوعريريج</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='بومرداس') }}">بومرداس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='الطارف') }}">الطارف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تندوف') }}">تندوف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تيسمسيلت') }}">تيسمسيلت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='الوادي') }}">الوادي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='خنشلة') }}">خنشلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='سوق أهراس') }}">سوق أهراس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تيبازة') }}">تيبازة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ميلة') }}">ميلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='عين الدفلى') }}">عين الدفلى</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='النعامة') }}">النعامة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='عين تموشنت') }}">عين تموشنت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='غرداية') }}">غرداية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='غليزان') }}">غليزان</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تيميمون') }}">تيميمون</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='برج باجي مختار') }}">برج باجي مختار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='أولاد جلال') }}">أولاد جلال</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='بني عباس') }}">بني عباس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='عين صالح') }}">عين صالح</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='عين قزام') }}">عين قزام</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='تقرت') }}">تقرت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='جانت') }}">جانت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='المغير') }}">المغير</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='المنيعة') }}">المنيعة</a>
+
+            </div>
+        </div>
+    </div>
+</header>
+<hr>
+<h2 id="hhhh">Electronics of {{ wilaya }}:</h2>
+
+</div>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if is_electronics %}
+    <div class="product-container" >
+    {% for product in wilaya_products %}
+        {% if product.category == 'electronics' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_electronics">no electronics yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+
+</div>
+<hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>SERVICES of {{ wilaya }}:</h2>
+{% if is_services %}
+    <div class="product-container" id="productContainer">
+    {% for product in wilaya_products %}
+        {% if product.category == 'services' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_services">no services yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+
+</div>
+<hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>CARS of {{ wilaya }}:</h2>
+{% if is_cars %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'cars' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_cars">no cars yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>RESIDENCES of {{ wilaya }}:</h2>
+{% if is_residences %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'residences' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_residences">no residences yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+        <hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>CLOTHES of {{ wilaya }}:</h2>
+{% if is_clothes %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'clothes' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_clothes">no clothes yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+                <hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>HOUSES of {{ wilaya }}:</h2>
+{% if is_houses %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'clothes' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_houses">no houses yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+        <hr>
+        <div class="ad-space">
+  <p>إعلان</p>
+</div>
+        <hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>PHONES of {{ wilaya }}:</h2>
+{% if is_phones %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'phones' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_phones">no phones yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+                <hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>FURNITURE of {{ wilaya }}:</h2>
+{% if is_furniture %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'furniture' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_furniture">no furniture yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+        <hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>GAMING of {{ wilaya }}:</h2>
+{% if is_gaming %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'gaming' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_gaming">no gaming yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+        <hr>
+        <div class="ad-space">
+  <p>إعلان</p>
+</div>
+        <hr>
+<div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+<h2>DECORATIONS of {{ wilaya }}:</h2>
+{% if is_decorations %}
+    <div class="product-container">
+    {% for product in wilaya_products %}
+        {% if product.category == 'decorations' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <h2 id="no_decoration">no decorations yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+        <hr>
+        <div class="ad-space">
+  <p>إعلان</p>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

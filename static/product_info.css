@@ -1,0 +1,586 @@
+body {
+    background-color: #1F1E1C;
+}
+header {
+  margin: 0;
+  background: #0f0f0f;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* توزيع: روابط يسار، بحث في الوسط */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial;
+}
+
+/* الروابط */
+.header_object {
+  display: flex;
+  gap: 10px;
+}
+
+.header_object a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header_object a:hover {
+  background: #33A1E0;
+  color: #000;
+  box-shadow: 0 0 8px #33A1E0;
+}
+
+/* شريط البحث */
+.search-bar {
+  flex: 1;                      /* ياخذ مساحة وسط الهيدر */
+  display: flex;
+  margin-left:350px;    /* في المنتصف */
+}
+
+.search-bar input {
+  width: 50%;                    /* نفس يوتيوب: نصف عرض الهيدر */
+  max-width: 500px;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  background: #121212;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-bar button:hover {
+  background: #444;
+}
+/* الصندوق اللي يطلع تحت البحث */
+#suggestions-box {
+  position: absolute;
+  top: 45px; /* تحت الشريط مباشرة */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: 500px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 0 0 12px 12px;
+  color: white;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#suggestions-box div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+#suggestions-box div:hover {
+  background: #333;
+}
+
+.ad-space {
+  width: 300px;
+  height: 250px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  border: 2px dashed #555;
+  font-size: 14px;
+}
+.flashed_message {
+  padding: 12px 18px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  position: relative;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* زر × */
+.flashed_message .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* الأنواع */
+.flashed_message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 6px solid #28a745;
+}
+
+.flashed_message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 6px solid #dc3545;
+}
+
+.flashed_message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-left: 6px solid #17a2b8;
+}
+
+.flashed_message.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffc107;
+}
+#product_name {
+    color: #FF5200;
+    font-family:Arial;
+    margin-left:100px;
+    margin-bottom:100px;
+}
+#name {
+    font-family=Arial;
+    color:white;
+    margin-left:380px;
+    margin-top:-136px;
+}
+#adds {
+  width: 300px;
+  height: 250px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #555;
+  font-size: 14px;
+  margin-top:100px;
+}
+#information {
+    color: #FF5200;
+    font-family:Arial;
+    margin-left:100px;
+    margin-bottom:-30px;
+}
+.keys {
+    color: #FF5200;
+    font-family: Arial;
+    margin-left: 180px;
+    margin-top: 60px;
+    font-size:20px; /* حجم أكبر */
+}
+
+.values {
+    color: white;
+    font-family: Arial;
+    margin-left: 650px;
+    margin-top: -20px;
+    width: 200px;
+    height: auto;
+    font-size: 18px; /* حجم أكبر */
+}
+hr {
+  border: none;           /* نحذف الحدود الافتراضية */
+  height: 0.5px;            /* السمك */
+  background-color: white; /* اللون */
+  width: 30%;  /* ياخذ نصف عرض الشاشة */
+  margin-left:175px;
+}
+#product-image {
+    margin-left:1200px;
+    margin-top:-600px;
+}
+#phone {
+    color: #FF5200;
+    font-family:Arial;
+    margin-left:1200px;
+}
+#number {
+    color:white;
+    font-family:Arial;
+    margin-left:1410px;
+    margin-top:-47px;
+}
+#description {
+    font-size: 22px;
+    margin-top: -160px;
+    color: #FF5200;
+    text-transform: uppercase;
+    font-family:Arial;
+    text-decoration: underline;
+    margin-left:375px;
+    margin-top:-20px;
+}
+
+.description-card {
+    background-color: #1e1e1e; /* لون خلفية البطاقة */
+    color: #ddd;               /* لون النص */
+    padding: 15px;             /* مسافة داخلية */
+    border-radius: 10px;       /* حواف مستديرة */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* ظل */
+    max-width: 600px;          /* عرض البطاقة */
+    line-height: 1.6;          /* تباعد الأسطر */
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+    margin-left:150px;
+}
+#comment {
+    color:#FF5200;
+    font-family:Arial;
+    margin-top:-113px;
+    margin-left:800px;
+    text-decoration: underline;
+    margin-left:900px;
+    margin-top:50px;
+}
+/* صندوق التعليقات */
+.comment-box {
+    margin-left:1150px;
+    margin-top:-200px;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    background: #1a1a1a;  /* نفس ألوان الموقع الداكنة */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+/* مربع النص */
+.comment-box textarea {
+    width: 90%;
+    min-height: 30px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 16px;
+    background: #2b2b2b;
+    color: #fff;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.comment-box textarea:focus {
+    box-shadow: 0 0 8px #0077ff;
+}
+
+/* زر الإرسال */
+.comment-box button {
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: #0077ff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.comment-box button:hover {
+    background: #0055cc;
+}
+.comments-card {
+    background: #1a1a1a;
+    color: white;
+    width: 120%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    margin-left:1155px;
+    margin-top:40px;
+}
+
+.comments-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+    color: #4dabf7;
+}
+
+.comments-list {
+    max-height: 250px;   /* ارتفاع ثابت */
+    overflow-y: auto;    /* Scroll عمودي */
+    padding-right: 10px;
+}
+.comment-body {
+    font-size: 15px;
+    color: #ddd;
+    white-space: pre-wrap;   /* يحافظ على الأسطر */
+    word-wrap: break-word;   /* يكسر الكلمات الطويلة */
+    text-align: left;        /* يخلّي النص يبدأ من اليسار */
+}
+/* تصميم التعليق */
+.comment-item {
+    background: #2a2a2a;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    display: block;          /* يلغي أي محاذاة مرّكزة */
+    text-align: left;        /* يخلّي التعليق يبدأ من اليسار */
+}
+
+.comment-item:hover {
+    transform: scale(1.01);
+}
+
+.comment-header {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #4dabf7;
+}
+
+.comment-header span {
+    color: #fff;
+    font-weight: normal;
+}
+
+.comment-body {
+    font-size: 15px;
+    color: #ddd;
+}
+
+.no-comments {
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* تخصيص شريط التمرير (scrollbar) */
+.comments-list::-webkit-scrollbar {
+    width: 8px;
+}
+.comments-list::-webkit-scrollbar-thumb {
+    background: #4dabf7;
+    border-radius: 4px;
+}
+.comments-list::-webkit-scrollbar-track {
+    background: #222;
+}
+.reply-btn {
+    background: transparent;
+    color: #4dabf7;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.reply-btn:hover {
+    text-decoration: underline;
+}
+
+.reply-form {
+    margin-top: 10px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    min-height: 40px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    resize: none;
+    background: #2a2a2a;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.reply-form .send-reply {
+    background: #4dabf7;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.reply-form .send-reply:hover {
+    background: #1e6fa8;
+}
+
+.replies {
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 2px solid #333;
+}
+
+.reply-item {
+    background: #242424;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+
+.phone-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #16DB2F;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top:30px;
+    margin-left:1280px;
+    font-family:Arial;
+}
+
+.phone-button:hover {
+    background-color: #07B51B;
+    transform: scale(1.05);
+}
+.email-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0078D7; /* أزرق مثل Outlook */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-left:1265px;
+    margin-top:30px;
+    font-family:Arial;
+}
+
+.email-button:hover {
+    background-color: #005a9e;
+    transform: scale(1.05);
+}
+.no_comments {
+    color: #FF5200;
+    font-family:Arial;
+    margin-left:1350px;
+    margin-top:20px;
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* يعطي استدارة جميلة */
+}
+
+button:hover {
+    transform: scale(1.05); /* تكبير خفيف */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* ظل */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* القائمة */
+/* مكان القائمة */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* زر */
+.dropbtn {
+  background: #0f0f0f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+/* محتوى القائمة */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #222;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+/* المستطيل الكبير للولايات */
+.wilayas-box {
+  width: 900px;
+  height: 909px;
+  overflow-y: scroll;
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 أعمدة */
+  gap: 8px;
+}
+
+.wilayas-box a {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.wilayas-box a:hover {
+  background: #555;
+}
+
+/* عند الفتح */
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+.dropdown.active .arrow {
+  transform: rotate(90deg); /* يقلب السهم */
+}

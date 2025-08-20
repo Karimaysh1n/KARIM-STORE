@@ -1,0 +1,253 @@
+body {
+    background-color: #1F1E1C;
+}
+header {
+  margin: 0;
+  background: #0f0f0f;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* توزيع: روابط يسار، بحث في الوسط */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial;
+}
+
+/* الروابط */
+.header_object {
+  display: flex;
+  gap: 10px;
+}
+
+.header_object a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.header_object a:hover {
+  background: #33A1E0;
+  color: #000;
+  box-shadow: 0 0 8px #33A1E0;
+}
+
+/* شريط البحث */
+.search-bar {
+  flex: 1;                      /* ياخذ مساحة وسط الهيدر */
+  display: flex;
+  margin-left:350px;    /* في المنتصف */
+}
+
+.search-bar input {
+  width: 50%;                    /* نفس يوتيوب: نصف عرض الهيدر */
+  max-width: 500px;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  background: #121212;
+  color: white;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  width:50px;
+  height:40px;
+}
+
+.search-bar button:hover {
+  background: #444;
+}
+/* الصندوق اللي يطلع تحت البحث */
+#suggestions-box {
+  position: absolute;
+  top: 45px; /* تحت الشريط مباشرة */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: 500px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 0 0 12px 12px;
+  color: white;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#suggestions-box div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+#suggestions-box div:hover {
+  background: #333;
+}
+
+#suggestions-box div:hover {
+  background: #333;
+}
+
+.ad-space {
+  width: 300px;
+  height: 250px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  border: 2px dashed #555;
+  font-size: 14px;
+}
+
+.flashed_message {
+  padding: 12px 18px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  position: relative;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* زر × */
+.flashed_message .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.flashed_message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 6px solid #28a745;
+}
+
+.flashed_message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 6px solid #dc3545;
+}
+
+.flashed_message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-left: 6px solid #17a2b8;
+}
+
+.flashed_message.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffc107;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+/* form container */
+.form-container {
+    color: #333;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: ##FF5200;
+}
+
+/* form inputs */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color:#FF5200;
+    font-family:Arial;
+}
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-family:Arial;
+}
+form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* submit button */
+form button {
+    width: 100%;
+    background: #141311;
+    color:white;
+    font-family : Arial;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+form button:hover {
+    background: #FF5200;
+}
+
+/* flash messages */
+.flashed_message {
+    background: #FFD700;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px auto;
+    max-width: 500px;
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+h2 {
+    color:#FF5200;
+    font-family:Arial;
+}

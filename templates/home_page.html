@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+
+<header>
+    <!-- الروابط -->
+    <div class="header_object">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('sell') }}">Sell</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <!-- البحث -->
+    <form class="search-bar" method="GET" action="{{ url_for('search') }}">
+        <input type="text" id="searchInput" name="q" placeholder="Search" autocomplete="off">
+        <button type="submit">🔍</button>
+        <div id="suggestions-box"></div>
+    </form>
+
+    <!-- اختيار الولاية -->
+    <div class="dropdown">
+        <button class="dropbtn">
+            📍 إختر الولاية
+            <span class="arrow">⏵</span>
+        </button>
+        <div class="dropdown-content">
+            <div class="wilayas-box">
+                <a href="{{ url_for('products_of_wilaya', wilaya='adrar') }}">أدرار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='chlef') }}">الشلف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='laghouat') }}">الأغواط</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='oum-el-bouaghi') }}">أم البواقي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='batna') }}">باتنة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bejaia') }}">بجاية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='biskra') }}">بسكرة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bechar') }}">بشار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='blida') }}">البليدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bouira') }}">البويرة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tamanrasset') }}">تمنراست</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tebessa') }}">تبسة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tlemcen') }}">تلمسان</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tiaret') }}">تيارت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tizi-ouzou') }}">تيزي وزو</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='algiers') }}">الجزائر</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='djelfa') }}">الجلفة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='jijel') }}">جيجل</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='setif') }}">سطيف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='saida') }}">سعيدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='skikda') }}">سكيكدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='sidi-bel-abbes') }}">سيدي بلعباس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='annaba') }}">عنابة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='guelma') }}">قالمة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='constantine') }}">قسنطينة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='medea') }}">المدية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='mostaganem') }}">مستغانم</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='msila') }}">المسيلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='mascara') }}">معسكر</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ouargla') }}">ورقلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='oran') }}">وهران</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-bayadh') }}">البيض</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='illizi') }}">إليزي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bordj-bou-arreridj') }}">برج بوعريريج</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='boumerdes') }}">بومرداس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-tarf') }}">الطارف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tindouf') }}">تندوف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tissemsilt') }}">تيسمسيلت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-oued') }}">الوادي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='khenchela') }}">خنشلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='soukahras') }}">سوق أهراس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tipaza') }}">تيبازة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='mila') }}">ميلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-defla') }}">عين الدفلى</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='naama') }}">النعامة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-temouchent') }}">عين تموشنت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ghardaia') }}">غرداية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='relizane') }}">غليزان</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='timimoun') }}">تيميمون</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bordj-badji-mokhtar') }}">برج باجي مختار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ouled-djellal') }}">أولاد جلال</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='beni-abbes') }}">بني عباس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-salah') }}">عين صالح</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-guezzam') }}">عين قزام</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='touggourt') }}">تقرت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='djanet') }}">جانت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-mghair') }}">المغير</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-meniah') }}">المنيعة</a>
+
+            </div>
+        </div>
+    </div>
+
+</header>
+
+
+
+
+
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flashed_message {{ category }}">
+        {{ message }}
+        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<hr>
+<h2>Electronics:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_electronics') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if electronics_products %}
+    <div class="product-container" id="productContainer">
+    {% for product in electronics_products %}
+        {% if product.category == 'electronics' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% else %}
+    <h2 id="no_electronics">no electronics yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<h2>SERVICES:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_services') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if services_products %}
+    <div class="product-container">
+    {% for product in services_products %}
+        {% if product.category == 'services' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_services">no services yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<h2>CARS:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_cars') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if cars_products %}
+    <div class="product-container">
+    {% for product in cars_products %}
+        {% if product.category == 'cars' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_cars">no cars yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<hr>
+<h2>RESIDENCES:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_residences') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if residences_products %}
+    <div class="product-container">
+    {% for product in residences_products %}
+        {% if product.category == 'residences' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_residences">no residences yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<h2>CLOTHES:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_clothes') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if clothes_products %}
+    <div class="product-container">
+    {% for product in clothes_products %}
+        {% if product.category == 'clothes' %}
+           <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_clothes">no clothes yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<h2>HOUSES:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_houses') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if houses_products %}
+    <div class="product-container">
+    {% for product in houses_products %}
+        {% if product.category == 'houses' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_houses">no houses yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<hr>
+<h2>PHONES:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_phones') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if phones_products %}
+    <div class="product-container">
+    {% for product in phones_products %}
+        {% if product.category == 'phones' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_phones">no phones yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<h2>FURNITURE:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_furniture') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if furniture_products %}
+    <div class="product-container">
+    {% for product in furniture_products %}
+        {% if product.category == 'furniture' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_furniture">no furniture yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<h2>GAMING:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_gaming') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if gaming_products %}
+    <div class="product-container">
+    {% for product in gaming_products %}
+        {% if product.category == 'gaming' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_gaming">no gaming yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<hr>
+<h2>DECORATION:</h2>
+    <div class="see-more-container">
+    <a href="{{ url_for('see_more_decorations') }}" class="see-more-btn">عرض المزيد ➜</a>
+</div>
+{% if decoration_products %}
+    <div class="product-container">
+    {% for product in decoration_products %}
+        {% if product.category == 'decoration' %}
+            <a href="{{ url_for('product_info' , product_id=product.id) }}">
+            <button>
+                <div class="product-card">
+                <div class="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-details">
+                    <h3>{{ product.name }}</h3>
+                    <p class="price">{{ product.price }} DA</p>
+                    <p class="date">📅 {{ product.date.strftime("%Y-%m-%d") }}</p>
+                </div>
+            </div>
+            </button>
+            </a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+{% else %}
+    <h2 id="no_decoration">no decoration yet</h2>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endif %}
+<hr>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<script>
+function scrollLeft() {
+  document.getElementById('productContainer').scrollBy({left: -300, behavior: 'smooth'});
+}
+function scrollRight() {
+  document.getElementById('productContainer').scrollBy({left: 300, behavior: 'smooth'});
+}
+document.getElementById("searchInput").addEventListener("input", function() {
+    let query = this.value;
+    let suggestionsBox = document.getElementById("suggestions-box");
+
+    if (query.length > 1) {
+        fetch(`/search_suggestions?q=${query}`)
+            .then(res => res.json())
+            .then(data => {
+                suggestionsBox.innerHTML = "";
+                if (data.length > 0) {
+                    data.forEach(item => {
+                        let div = document.createElement("div");
+                        div.textContent = item;
+                        div.onclick = () => {
+                            document.getElementById("searchInput").value = item;
+                            suggestionsBox.style.display = "none";
+                        };
+                        suggestionsBox.appendChild(div);
+                    });
+                    suggestionsBox.style.display = "flex";
+                } else {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+    } else {
+        suggestionsBox.style.display = "none";
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
+
+  button.addEventListener("click", () => {
+    dropdown.classList.toggle("active");
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
+
+  button.addEventListener("click", () => {
+    dropdown.classList.toggle("active");
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
+
+  // عند الضغط على الزر يفتح/يغلق
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("active");
+  });
+
+  // إذا ضغط خارج القائمة، تنغلق
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

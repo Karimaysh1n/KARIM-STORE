@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>product info</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='product_info.css') }}">
+</head>
+<body>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+<header>
+    <!-- الروابط -->
+    <div class="header_object">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('sell') }}">Sell</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+    <!-- البحث -->
+    <form class="search-bar" method="GET" action="{{ url_for('search') }}">
+        <input type="text" id="searchInput" name="q" placeholder="Search" autocomplete="off">
+        <button type="submit">🔍</button>
+        <div id="suggestions-box"></div>
+    </form>
+
+    <!-- اختيار الولاية -->
+    <div class="dropdown">
+        <button class="dropbtn">
+            📍 إختر الولاية
+            <span class="arrow">⏵</span>
+        </button>
+        <div class="dropdown-content">
+            <div class="wilayas-box">
+                <a href="{{ url_for('products_of_wilaya', wilaya='adrar') }}">أدرار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='chlef') }}">الشلف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='laghouat') }}">الأغواط</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='oum-el-bouaghi') }}">أم البواقي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='batna') }}">باتنة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bejaia') }}">بجاية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='biskra') }}">بسكرة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bechar') }}">بشار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='blida') }}">البليدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bouira') }}">البويرة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tamanrasset') }}">تمنراست</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tebessa') }}">تبسة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tlemcen') }}">تلمسان</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tiaret') }}">تيارت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tizi-ouzou') }}">تيزي وزو</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='algiers') }}">الجزائر</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='djelfa') }}">الجلفة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='jijel') }}">جيجل</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='setif') }}">سطيف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='saida') }}">سعيدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='skikda') }}">سكيكدة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='sidi-bel-abbes') }}">سيدي بلعباس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='annaba') }}">عنابة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='guelma') }}">قالمة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='constantine') }}">قسنطينة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='medea') }}">المدية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='mostaganem') }}">مستغانم</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='msila') }}">المسيلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='mascara') }}">معسكر</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ouargla') }}">ورقلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='oran') }}">وهران</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-bayadh') }}">البيض</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='illizi') }}">إليزي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bordj-bou-arreridj') }}">برج بوعريريج</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='boumerdes') }}">بومرداس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-tarf') }}">الطارف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tindouf') }}">تندوف</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tissemsilt') }}">تيسمسيلت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-oued') }}">الوادي</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='khenchela') }}">خنشلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='soukahras') }}">سوق أهراس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='tipaza') }}">تيبازة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='mila') }}">ميلة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-defla') }}">عين الدفلى</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='naama') }}">النعامة</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-temouchent') }}">عين تموشنت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ghardaia') }}">غرداية</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='relizane') }}">غليزان</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='timimoun') }}">تيميمون</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='bordj-badji-mokhtar') }}">برج باجي مختار</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ouled-djellal') }}">أولاد جلال</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='beni-abbes') }}">بني عباس</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-salah') }}">عين صالح</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='ain-guezzam') }}">عين قزام</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='touggourt') }}">تقرت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='djanet') }}">جانت</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-mghair') }}">المغير</a>
+<a href="{{ url_for('products_of_wilaya', wilaya='el-meniah') }}">المنيعة</a>
+
+            </div>
+        </div>
+    </div>
+
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flashed_message {{ category }}">
+        {{ message }}
+        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <h1 id="product_name">PRODUCT NAME:</h1><h1 id="name">{{ product.name }}</h1>
+
+<div class="keys">name</div>        <div class="values">{{ product.name }}</div>
+<hr>
+<div class="keys">price</div>       <div class="values">{{ product.price }}</div>
+<hr>
+<div class="keys">quantity</div>    <div class="values">{{ product.quantity }}</div>
+<hr>
+<div class="keys">views</div>       <div class="values">{{ product.views }}</div>
+<hr>
+<div class="keys">date</div>        <div class="values">{{ product.date.strftime("%Y-%m-%d") }}</div>
+<hr>
+<div class="keys">condition</div>   <div class="values">{{ product.condition }}</div>
+<hr>
+<div class="keys">wilaya</div>      <div class="values">{{ product.wilaya }}</div>
+<hr>
+<div id="product-image">
+                    <img src="{{ url_for('static', filename='uploads/products/' + product.image) }}" alt="{{ product.name }}" width="450px" height="auto">
+                </div>
+
+<a href="tel:+{{ product.number }}" class="phone-button">PHONE NUMBER📱:{{ product.number }}</a>
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ product.email }}"
+   target="_blank" class="email-button">
+   ✉️ EMAIL: {{ product.email }}
+</a>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2 id="description">DESCRIPTION</h2>
+<div class="description-card">
+    {{ product.description }}
+</div>
+<h2 id="comment">COMMENTS:</h2>
+
+<div class="comment-box">
+    <form action="{{ url_for('product_info' , product_id=product.id) }}" method="POST">
+        <textarea name="comment" placeholder="اكتب تعليقك هنا..."></textarea>
+        <button type="submit">إرسال</button>
+    </form>
+</div>
+
+<div class="comments-card">
+    <h3>💬 Comments</h3>
+    <div class="comments-list">
+        {% if comments %}
+            {% for comment in comments %}
+            <div class="comment-item">
+                <div class="comment-header">
+                    👤 by: <span>{{ comment.user.username }}</span>
+                </div>
+                <div class="comment-body">
+                    {{ comment.comment }}
+                </div>
+
+                <!-- زر إظهار الرد -->
+                <button class="reply-btn" onclick="toggleReplyForm({{ comment.id }})">Reply</button>
+
+                <!-- نموذج الرد -->
+                <form method="POST" action="{{ url_for('product_info2', comment_id=comment.id, product_id=product.id) }}"
+                      id="reply-form-{{ comment.id }}" class="reply-form" style="display:none;">
+                    <textarea name="replay" placeholder="اكتب ردك هنا..."></textarea>
+                    <button type="submit" class="send-reply">إرسال</button>
+                </form>
+
+                <!-- مكان عرض الردود -->
+                <div class="replies">
+                    {% for replay in replayes if replay.comment_id == comment.id %}
+                    <div class="reply-item">
+                        <b>{{ replay.user.username }}</b>: {{ replay.replay }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-comments">No comments yet</p>
+        {% endif %}
+    </div>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".toggle-replies");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const replies = btn.closest(".comment-card").querySelector(".replies");
+
+      replies.classList.toggle("show");
+      btn.classList.toggle("open");
+    });
+  });
+});
+function toggleReplyForm(id) {
+    const form = document.getElementById("reply-form-" + id);
+    form.style.display = form.style.display === "none" ? "block" : "none";
+}
+function toggleReplyForm(id) {
+    const form = document.getElementById("reply-form-" + id);
+    form.style.display = form.style.display === "none" ? "block" : "none";
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
+
+  button.addEventListener("click", () => {
+    dropdown.classList.toggle("active");
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
+
+  button.addEventListener("click", () => {
+    dropdown.classList.toggle("active");
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.querySelector(".dropdown");
+  const button = dropdown.querySelector(".dropbtn");
+
+  // عند الضغط على الزر يفتح/يغلق
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    dropdown.classList.toggle("active");
+  });
+
+  // إذا ضغط خارج القائمة، تنغلق
+  window.addEventListener("click", (e) => {
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+});
+</script>
+
+</body>
+</html>

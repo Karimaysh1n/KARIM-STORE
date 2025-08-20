@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sell Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='sell_page.css') }}">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="ad-space">
+  <p>إعلان</p>
+</div>
+
+<header>
+    <div class="header_object">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('sell') }}" class="active">Sell</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        <a href="{{ url_for('logout') }}">logout</a>
+    </div>
+<form class="search-bar" method="GET" action="{{ url_for('search') }}" onsubmit="return false;">
+    <input type="text" id="searchInput" name="q" placeholder="Search" autocomplete="off">
+    <button type="submit">🔍</button>
+    <div id="suggestions-box"></div>
+</form>
+</header>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flashed_message {{ category }}">
+        {{ message }}
+        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+<div class="form-container">
+  <h2>🛒 Sell Your Product</h2>
+  <form action="{{ url_for('sell') }}" method="post" enctype="multipart/form-data">
+
+    <label for="name">Product Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter product name" required>
+
+    <label for="price">Price (DA)</label>
+    <input type="number" id="price" name="price" placeholder="Enter product price" required>
+
+    <label for="wilaya">Wilaya</label>
+    <select name="wilaya" id="wilaya">
+    <option value="">📍 اختر الولاية</option>
+    <option value="adrar">أدرار</option>
+    <option value="chlef">الشلف</option>
+    <option value="laghouat">الأغواط</option>
+    <option value="oum-el-bouaghi">أم البواقي</option>
+    <option value="batna">باتنة</option>
+    <option value="bejaia">بجاية</option>
+    <option value="biskra">بسكرة</option>
+    <option value="bechar">بشار</option>
+    <option value="blida">البليدة</option>
+    <option value="bouira">البويرة</option>
+    <option value="tamanrasset">تمنراست</option>
+    <option value="tebessa">تبسة</option>
+    <option value="tlemcen">تلمسان</option>
+    <option value="tiaret">تيارت</option>
+    <option value="tizi-ouzou">تيزي وزو</option>
+    <option value="algiers">الجزائر</option>
+    <option value="djelfa">الجلفة</option>
+    <option value="jijel">جيجل</option>
+    <option value="setif">سطيف</option>
+    <option value="saida">سعيدة</option>
+    <option value="skikda">سكيكدة</option>
+    <option value="sidi-bel-abbes">سيدي بلعباس</option>
+    <option value="annaba">عنابة</option>
+    <option value="guelma">قالمة</option>
+    <option value="constantine">قسنطينة</option>
+    <option value="medea">المدية</option>
+    <option value="mostaganem">مستغانم</option>
+    <option value="msila">المسيلة</option>
+    <option value="mascara">معسكر</option>
+    <option value="ouargla">ورقلة</option>
+    <option value="oran">وهران</option>
+    <option value="el-bayadh">البيض</option>
+    <option value="illizi">إليزي</option>
+    <option value="bordj-bou-arreridj">برج بوعريريج</option>
+    <option value="boumerdes">بومرداس</option>
+    <option value="el-tarf">الطارف</option>
+    <option value="tindouf">تندوف</option>
+    <option value="tissemsilt">تيسمسيلت</option>
+    <option value="el-oued">الوادي</option>
+    <option value="khenchela">خنشلة</option>
+    <option value="souk-ahras">سوق أهراس</option>
+    <option value="tipaza">تيبازة</option>
+    <option value="mila">ميلة</option>
+    <option value="ain-defla">عين الدفلى</option>
+    <option value="naama">النعامة</option>
+    <option value="ain-temouchent">عين تموشنت</option>
+    <option value="ghardaia">غرداية</option>
+    <option value="relizane">غليزان</option>
+    <option value="timimoun">تيميمون</option>
+    <option value="bordj-baji-mokhtar">برج باجي مختار</option>
+    <option value="ouled-djellal">أولاد جلال</option>
+    <option value="beni-abbes">بني عباس</option>
+    <option value="in-salah">عين صالح</option>
+    <option value="in-guezzam">عين قزام</option>
+    <option value="touggourt">تقرت</option>
+    <option value="djanet">جانت</option>
+    <option value="el-mghair">المغير</option>
+    <option value="el-meniah">المنيعة</option>
+</select>
+
+
+
+    <label for="category">Category</label>
+    <select name="category" id="category" required>
+        <option value="services">Services</option>
+        <option value="electronics">Electronics</option>
+        <option value="cars">Cars</option>
+        <option value="clothes">Clothes</option>
+        <option value="residences">Residences</option>
+        <option value="houses">Houses</option>
+        <option value="phones">Phones</option>
+        <option value="furniture">Furniture</option>
+        <option value="gaming">Gaming</option>
+        <option value="decorations">Decorations</option>
+        <option value="others">Others</option>
+    </select>
+
+
+    <label for="quantity">Quantity</label>
+    <input type="number" name="quantity" id="quantity" min="1" required>
+
+    <label for="condition">Condition</label>
+    <select name="condition" id="condition" required>
+      <option value="new">New</option>
+      <option value="used">Used</option>
+    </select>
+
+    <label for="description">Description</label>
+    <textarea name="description" id="description" placeholder="Enter product details..." required></textarea>
+
+    <label for="image">Product Image (optional)</label>
+    <input type="file" id="image" name="image" accept="image/*">
+
+    <label for="number">number of telephone</label>
+    <input type="text" id="number" name="number" required>
+
+    <label for="email">email</label>
+    <input type="text" name="email" id="email" required>
+
+    <button type="submit">Publish Product</button>
+  </form>
+</div>
+
+</body>
+</html>
