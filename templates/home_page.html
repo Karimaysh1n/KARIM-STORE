@@ -97,7 +97,15 @@
             </div>
         </div>
     </div>
+<button class="menu-toggle">☰</button>
 
+  <!-- القائمة الجانبية -->
+  <div class="side-menu" id="sideMenu">
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <a href="/logout">Logout</a>
+    <a href="/sell">Sell</a>
+  </div>
 </header>
 
 
@@ -184,6 +192,14 @@
     <br>
     <br>
 {% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <hr>
 <h2>CARS:</h2>
     <div class="see-more-container">
@@ -554,6 +570,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+const toggleBtn = document.querySelector(".menu-toggle");
+  const sideMenu = document.getElementById("sideMenu");
+
+  toggleBtn.addEventListener("click", () => {
+    sideMenu.classList.toggle("active");
+  });
 </script>
 
 </body>
