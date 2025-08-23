@@ -354,6 +354,10 @@ def logout():
     session.clear()
     return redirect(url_for('login'))
 
+@app.route('/google5c6f4766bb48684f.html')
+def google_verification():
+    return "google-site-verification: google5c6f4766bb48684f.html"
+
 
 
 
