@@ -357,13 +357,6 @@ def logout():
 def google_verification():
     return "google-site-verification: google5c6f4766bb48684f.html"
 
-@app.route('/sitemap.xml')
-def sitemap():
-    return send_from_directory(
-        directory=os.path.abspath(os.path.dirname(__file__)),
-        path='sitemap.xml',
-        mimetype='application/xml'
-    )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
