@@ -396,39 +396,11 @@ header {
 
 /* القائمة */
 /* مكان القائمة */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+
 
 /* زر */
-.dropbtn {
-  background: #0f0f0f;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
 
-.arrow {
-  transition: transform 0.3s ease;
-}
 
-/* محتوى القائمة */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #222;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
 
 /* المستطيل الكبير للولايات */
 .wilayas-box {
@@ -457,18 +429,54 @@ header {
 .wilayas-box a:hover {
   background: #555;
 }
-.dropdown.show .dropdown-content {
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: #2a2a2a;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -480px;                  /* خليها تبدأ من اليسار مش اليمين */
+  top: 100%;                /* تخليها تنزل تحت الزر مباشرة */
+  background-color: #1e1e1e;
+  min-width: 200px;         /* عرض أدنى */
+  max-height: 400px;        /* ارتفاع مع تمرير */
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  border-radius: 6px;
+  z-index: 3000;
+  margin-right:3000px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
 }
 
-/* عند الفتح */
-.dropdown.active .dropdown-content {
+.dropdown-content a:hover {
+  background-color: #333;
+}
+
+/* لما يضاف الكلاس show من JS → تظهر */
+.dropdown-content.show {
   display: block;
 }
 
-.dropdown.active .arrow {
-  transform: rotate(90deg); /* يقلب السهم */
-}
 /* تعديلات خاصة بالهاتف فقط */
 /* تعديلات خاصة بالهاتف */
 @media (max-width: 768px) {
@@ -492,7 +500,7 @@ header {
   background: none;
   border: none;
   font-size: 50px;
-  margin-left: 50px;
+  margin-left: 0px;
 }
 
 .side-menu {
@@ -670,7 +678,7 @@ header {
 .search-bar {
   flex: 1;                      /* ياخذ مساحة وسط الهيدر */
   display: flex;
-  margin-left: -195px;          /* إلغاء الهامش الكبير */
+  margin-left: -200px;          /* إلغاء الهامش الكبير */
   width: 80%;             /* ياخذ عرض كامل */
   justify-content: center; /* في الوسط */
   padding: 0 10px;    /* في المنتصف */
@@ -768,77 +776,7 @@ h2 {
     font-size:60px;
     margin-top:0px;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
 
-/* زر */
-.dropbtn {
-  background: #0f0f0f;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 30px;
-  font-family:Arial;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  width:170px;
-  height:80px;
-  margin-left:-200px;
-}
-
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-/* محتوى القائمة */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  right: 0;
-  background-color: #222;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-  z-index: 1000;
-}
-
-/* المستطيل الكبير للولايات */
-.wilayas-box {
-  overflow-y: scroll;
-  background: #1c1c1c;
-  border-radius: 8px;
-  padding: 10px;
-  display: grid;
-  width:500px;
-  height:500px;
-  grid-template-columns: repeat(2, 1fr); /* عمودين بدل 4 */
-  gap: 10px;
-}
-
-.wilayas-box a {
-  background: #333;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  transition: background 0.2s;
-  font-size: 32px;         /* خط أكبر قليلا للهاتف */
-  padding: 14px;
-}
-
-.wilayas-box a:hover {
-  background: #555;
-}
-
-/* عند الفتح */
-.dropdown.active .dropdown-content {
-  display: block;
-}
 
 .dropdown.active .arrow {
   transform: rotate(90deg); /* يقلب السهم */
@@ -854,5 +792,80 @@ h2 {
   height: 300px;          /* ارتفاع أكبر */
   font-size: 18px;        /* نص أوضح */
   border: 2px dashed #777;
+}
+.wilayas-box {
+  width: 460px;
+  height: auto;
+  overflow-y: scroll;
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 أعمدة */
+  gap: 8px;
+}
+
+.wilayas-box a {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: background 0.2s;
+  font-size:40px;
+}
+
+.wilayas-box a:hover {
+  background: #555;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: #2a2a2a;
+  color: white;
+  padding: 10px 16px;
+  font-size: 34px;
+  margin-left:-200px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -480px;                  /* خليها تبدأ من اليسار مش اليمين */
+  top: 100%;                /* تخليها تنزل تحت الزر مباشرة */
+  background-color: #1e1e1e;
+  min-width: 200px;         /* عرض أدنى */
+  max-height: 400px;        /* ارتفاع مع تمرير */
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  border-radius: 6px;
+  z-index: 3000;
+  margin-right:3000px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #333;
+}
+
+/* لما يضاف الكلاس show من JS → تظهر */
+.dropdown-content.show {
+  display: block;
 }
 }
