@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
     <meta charset="UTF-8">
 </head>
+
 <body>
 <div class="ad-space">
   <p>إعلان</p>
@@ -524,41 +525,47 @@ document.getElementById("searchInput").addEventListener("input", function() {
     }
 });
 const menuToggle = document.querySelector('.menu-toggle');
-const sideMenu = document.getElementById('sideMenu');
-const overlay = document.getElementById('overlay');
+const sideMenu   = document.getElementById('sideMenu');
+const overlay    = document.getElementById('overlay');
 
+// فتح القائمة
 menuToggle.addEventListener('click', () => {
   sideMenu.classList.add('active');
   overlay.classList.add('active');
 });
 
-// إغلاق القائمة عند الضغط خارجها (على الـ overlay)
+// إغلاق القائمة عند الضغط على الـ overlay
 overlay.addEventListener('click', () => {
   sideMenu.classList.remove('active');
   overlay.classList.remove('active');
 });
 
-// إغلاق القائمة عند الضغط على أي رابط داخلها
-document.querySelectorAll('#sideMenu a').forEach(link => {
-  link.addEventListener('click', () => {
+// إغلاق القائمة عند الضغط في أي مكان خارجها
+document.addEventListener('click', (event) => {
+  if (
+    sideMenu.classList.contains('active') &&   // القائمة مفتوحة
+    !sideMenu.contains(event.target) &&        // الضغط مش داخل القائمة
+    !menuToggle.contains(event.target)         // الضغط مش على زر الفتح
+  ) {
     sideMenu.classList.remove('active');
     overlay.classList.remove('active');
-  });
-});
-const dropdownBtn = document.querySelector('.dropbtn');
-const dropdown = document.querySelector('.dropdown');
-
-dropdownBtn.addEventListener('click', () => {
-  dropdown.classList.toggle('show');
-});
-
-// اغلاق القائمة لو ضغطت في أي مكان براها
-window.addEventListener('click', (e) => {
-  if (!dropdown.contains(e.target)) {
-    dropdown.classList.remove('show');
   }
 });
+const dropdownBtn = document.querySelector('.dropbtn');
+const dropdownContent = document.querySelector('.dropdown-content');
 
+// فتح/إغلاق القائمة عند الضغط
+dropdownBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // يمنع إغلاقها مباشرة
+  dropdownContent.classList.toggle('show');
+});
+
+// إغلاق القائمة إذا ضغطت براها
+document.addEventListener('click', (e) => {
+  if (!dropdownContent.contains(e.target) && !dropdownBtn.contains(e.target)) {
+    dropdownContent.classList.remove('show');
+  }
+});
 </script>
 
 </body>

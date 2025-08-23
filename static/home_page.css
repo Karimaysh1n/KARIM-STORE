@@ -491,35 +491,38 @@ header {
   color: white;
   background: none;
   border: none;
-  font-size: 50px; /* حجم أيقونة القائمة */
-  margin-left:30px;
+  font-size: 50px;
+  margin-left: 50px;
 }
 
 .side-menu {
   position: fixed;
   top: 0;
-  left: -250px;
-  width: 250px; /* أكبر شوية للهاتف */
+  right: -250px;  /* مخفية */
+  width: 250px;
   height: 100%;
-  background: #1c1c1c;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+  background: #1c1c1c;;
   transition: left 0.3s ease;
   z-index: 2000;
-
-  display: flex;              /* تفعيل flex */
-  flex-direction: column;     /* الروابط تحت بعض */
-  justify-content: center;    /* توسيط عمودي */
-  align-items: center;        /* توسيط أفقي */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+.side-menu.active {
+  right: 0;
+}
+
 
 .side-menu a {
   display: block;
   color: white;
   text-decoration: none;
-  font-size: 50px;       /* أكبر للهاتف */
-  padding: 20px 0;       /* مساحة لمس أكبر */
-  width: 100%;           /* يغطي عرض القائمة */
-  text-align: center;    /* الكتابة في النص */
+  font-size: 30px;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
   border-bottom: 1px solid #333;
 }
 
@@ -527,9 +530,28 @@ header {
   background: #333;
 }
 
-.side-menu.active {
-  left: 0;
+
+.menu-toggle {
+  position: relative;
+  z-index: 3000;
 }
+
+/* الـ Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
 
 
   /* هنا التعديل المهم */
@@ -648,7 +670,7 @@ header {
 .search-bar {
   flex: 1;                      /* ياخذ مساحة وسط الهيدر */
   display: flex;
-  margin-left: -150px;          /* إلغاء الهامش الكبير */
+  margin-left: -195px;          /* إلغاء الهامش الكبير */
   width: 80%;             /* ياخذ عرض كامل */
   justify-content: center; /* في الوسط */
   padding: 0 10px;    /* في المنتصف */
