@@ -2,7 +2,9 @@ body {
     background-color: #1F1E1C;
 }
 header {
-  margin: 0;
+  margin-left:450px;
+  width:1000px;
+  height:auto;
   background: #0f0f0f;
   padding: 10px 20px;
   display: flex;
@@ -41,11 +43,12 @@ header {
 .search-bar {
   flex: 1;                      /* ياخذ مساحة وسط الهيدر */
   display: flex;
-  margin-left:350px;    /* في المنتصف */
+  margin-left:50px;        /* في المنتصف */
+  margin-top:20px;
 }
 
 .search-bar input {
-  width: 50%;                    /* نفس يوتيوب: نصف عرض الهيدر */
+  width: 85%;                    /* نفس يوتيوب: نصف عرض الهيدر */
   max-width: 500px;
   padding: 8px 12px;
   border: 1px solid #333;
@@ -71,7 +74,7 @@ header {
   cursor: pointer;
   transition: 0.3s;
   width:50px;
-  height:40px;
+  height:38px;
 }
 
 .search-bar button:hover {
@@ -103,11 +106,67 @@ header {
 #suggestions-box div:hover {
   background: #333;
 }
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 50px;
+  margin-left: 30px;
+}
 
-#suggestions-box div:hover {
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #1c1c1c;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+  transition: left 0.3s ease;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.side-menu a:hover {
   background: #333;
 }
 
+.side-menu.active {
+  left: 0;
+}
+
+/* الـ Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
 .ad-space {
   width: 300px;
   height: 250px;
@@ -250,4 +309,292 @@ form button:hover {
 h2 {
     color:#FF5200;
     font-family:Arial;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  color: white;
+  margin-left:0px;
+  width:40%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+
+  /* الهيدر نفس ما عندك */
+  .header_object,
+  .search-bar {
+    display: none;
+  }
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  color: white;
+  margin-left:0px;
+  width:60%;
+  margin: 0 auto;
+}
+  .search-bar {
+  flex: 1;                      /* ياخذ مساحة وسط الهيدر */
+  display: flex;
+  margin-left:50px;        /* في المنتصف */
+  margin-top:20px;
+}
+
+.search-bar input {
+  width: 85%;                    /* نفس يوتيوب: نصف عرض الهيدر */
+  max-width: 500px;
+  padding: 8px 12px;
+  border: 1px solid #333;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  background: #121212;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  height:20px;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+  font-family:Arial;
+  font-size:20px;
+}
+
+.search-bar button {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  width:70px;
+  height:50px;
+  font-size:25px;
+}
+
+.search-bar button:hover {
+  background: #444;
+}
+/* الصندوق اللي يطلع تحت البحث */
+#suggestions-box {
+  position: absolute;
+  top: 45px; /* تحت الشريط مباشرة */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  max-width: 500px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 0 0 12px 12px;
+  color: white;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#suggestions-box div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+#suggestions-box div:hover {
+  background: #333;
+}
+
+
+  .menu-toggle {
+  display: block;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 50px; /* حجم أيقونة القائمة */
+  margin-left:5px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px; /* أكبر شوية للهاتف */
+  height: 100%;
+  background: #1c1c1c;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+  transition: left 0.3s ease;
+  z-index: 2000;
+
+  display: flex;              /* تفعيل flex */
+  flex-direction: column;     /* الروابط تحت بعض */
+  justify-content: center;    /* توسيط عمودي */
+  align-items: center;        /* توسيط أفقي */
+}
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 50px;       /* أكبر للهاتف */
+  padding: 20px 0;       /* مساحة لمس أكبر */
+  width: 100%;           /* يغطي عرض القائمة */
+  text-align: center;    /* الكتابة في النص */
+  border-bottom: 1px solid #333;
+}
+
+.side-menu a:hover {
+  background: #333;
+}
+
+.side-menu.active {
+  left: 0;
+}
+.ad-space {
+  width: 300px;
+  height: 250px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  border: 2px dashed #555;
+  font-size: 14px;
+}
+
+.flashed_message {
+  padding: 12px 18px;
+  margin: 10px auto;
+  width: 80%;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  position: relative;
+  animation: fadeIn 0.5s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* زر × */
+.flashed_message .close-btn {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.flashed_message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border-left: 6px solid #28a745;
+}
+
+.flashed_message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-left: 6px solid #dc3545;
+}
+
+.flashed_message.info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border-left: 6px solid #17a2b8;
+}
+
+.flashed_message.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffc107;
+}
+/* form container */
+.form-container {
+    color: #333;
+    max-width:720px;
+    margin: 40px auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 100px;
+    color: ##FF5200;
+    font-size:50px;
+}
+
+/* form inputs */
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color:#FF5200;
+    font-family:Arial;
+    font-size:40px;
+}
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-family:Arial;
+}
+form textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* submit button */
+form button {
+    width: 100%;
+    background: #141311;
+    color:white;
+    font-family : Arial;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 40px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+form button:hover {
+    background: #FF5200;
+}
+
+/* flash messages */
+.flashed_message {
+    background: #FFD700;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 15px auto;
+    max-width: 500px;
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+h2 {
+    color:#FF5200;
+    font-family:Arial;
+}
+
 }

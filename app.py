@@ -1,6 +1,6 @@
 from datetime import datetime, date
 
-import app
+
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
@@ -353,7 +353,6 @@ def products_of_wilaya(wilaya):
 def logout():
     session.clear()
     return redirect(url_for('login'))
-
 
 
 

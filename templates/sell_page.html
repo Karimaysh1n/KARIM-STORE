@@ -11,12 +11,18 @@
 </div>
 
 <header>
-    <div class="header_object">
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('sell') }}" class="active">Sell</a>
-        <a href="{{ url_for('login') }}">Login</a>
-        <a href="{{ url_for('logout') }}">logout</a>
-    </div>
+    <button class="menu-toggle">☰</button>
+
+<div class="side-menu" id="sideMenu">
+  <a href="{{ url_for('home') }}">home-الصفحة الرئيسية🏠</a>
+  <a href="{{ url_for('logout') }}">logout-خروج🚶‍♂️</a>
+  <a href="{{ url_for('sell') }}">sell-🤑بيع</a>
+  <a href="{{ url_for('login') }}">login-تسجيل😲</a>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
 <form class="search-bar" method="GET" action="{{ url_for('search') }}" onsubmit="return false;">
     <input type="text" id="searchInput" name="q" placeholder="Search" autocomplete="off">
     <button type="submit">🔍</button>
@@ -151,6 +157,78 @@
     <button type="submit">Publish Product</button>
   </form>
 </div>
+<script>
+function scrollLeft() {
+  document.getElementById('productContainer').scrollBy({left: -300, behavior: 'smooth'});
+}
+function scrollRight() {
+  document.getElementById('productContainer').scrollBy({left: 300, behavior: 'smooth'});
+}
+document.getElementById("searchInput").addEventListener("input", function() {
+    let query = this.value;
+    let suggestionsBox = document.getElementById("suggestions-box");
+
+    if (query.length > 1) {
+        fetch(`/search_suggestions?q=${query}`)
+            .then(res => res.json())
+            .then(data => {
+                suggestionsBox.innerHTML = "";
+                if (data.length > 0) {
+                    data.forEach(item => {
+                        let div = document.createElement("div");
+                        div.textContent = item;
+                        div.onclick = () => {
+                            document.getElementById("searchInput").value = item;
+                            suggestionsBox.style.display = "none";
+                        };
+                        suggestionsBox.appendChild(div);
+                    });
+                    suggestionsBox.style.display = "flex";
+                } else {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+    } else {
+        suggestionsBox.style.display = "none";
+    }
+});
+const menuToggle = document.querySelector('.menu-toggle');
+const sideMenu = document.getElementById('sideMenu');
+const overlay = document.getElementById('overlay');
+
+menuToggle.addEventListener('click', () => {
+  sideMenu.classList.add('active');
+  overlay.classList.add('active');
+});
+
+// إغلاق القائمة عند الضغط خارجها (على الـ overlay)
+overlay.addEventListener('click', () => {
+  sideMenu.classList.remove('active');
+  overlay.classList.remove('active');
+});
+
+// إغلاق القائمة عند الضغط على أي رابط داخلها
+document.querySelectorAll('#sideMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    sideMenu.classList.remove('active');
+    overlay.classList.remove('active');
+  });
+});
+const dropdownBtn = document.querySelector('.dropbtn');
+const dropdown = document.querySelector('.dropdown');
+
+dropdownBtn.addEventListener('click', () => {
+  dropdown.classList.toggle('show');
+});
+
+// اغلاق القائمة لو ضغطت في أي مكان براها
+window.addEventListener('click', (e) => {
+  if (!dropdown.contains(e.target)) {
+    dropdown.classList.remove('show');
+  }
+});
+
+</script>
 
 </body>
 </html>

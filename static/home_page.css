@@ -2,18 +2,21 @@ body {
     background-color: #1F1E1C;
 }
 header {
-  margin: 0;
+  width: 30%;                 /* العرض أصغر */
+  height: 60px;
+  margin: 0 auto;              /* يجي بالوسط */
   background: #0f0f0f;
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* توزيع: روابط يسار، بحث في الوسط */
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   position: sticky;
   top: 0;
   z-index: 1000;
   font-family: Arial;
 }
+
 
 /* الروابط */
 .header_object {
@@ -41,11 +44,11 @@ header {
 .search-bar {
   flex: 1;                      /* ياخذ مساحة وسط الهيدر */
   display: flex;
-  margin-left:350px;    /* في المنتصف */
+  margin-left:170px;        /* في المنتصف */
 }
 
 .search-bar input {
-  width: 50%;                    /* نفس يوتيوب: نصف عرض الهيدر */
+  width: 85%;                    /* نفس يوتيوب: نصف عرض الهيدر */
   max-width: 500px;
   padding: 8px 12px;
   border: 1px solid #333;
@@ -100,6 +103,67 @@ header {
 
 #suggestions-box div:hover {
   background: #333;
+}
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #1c1c1c;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+  transition: left 0.3s ease;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.side-menu a:hover {
+  background: #333;
+}
+
+.side-menu.active {
+  left: 0;
+}
+
+/* الـ Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
 }
 
 
@@ -222,7 +286,6 @@ header {
 
 
 
-
 .see-more-container {
     display: flex;
     justify-content: flex-end; /* يجعل الزر في أقصى اليمين */
@@ -246,7 +309,7 @@ h2 {
     color: #FF5200;
     font-family:Arial;
     font-size:40px;
-    margin-top:0px;
+    margin-bottom:0px;
 }
 #no_electronics {
     color: #FF5200;
@@ -326,6 +389,9 @@ header {
   background: #1a1a1a;
   padding: 10px 20px;
   color: white;
+  margin-left:0px;
+  width:60%;
+  margin: 0 auto;
 }
 
 /* القائمة */
@@ -391,6 +457,9 @@ header {
 .wilayas-box a:hover {
   background: #555;
 }
+.dropdown.show .dropdown-content {
+  display: block;
+}
 
 /* عند الفتح */
 .dropdown.active .dropdown-content {
@@ -413,6 +482,7 @@ header {
     padding: 20px 25px;   /* تكبير البادينغ */
     font-size: 20px;      /* تكبير حجم النص */
     height: 70px;         /* رفع ارتفاع الهيدر */
+    width:100%;
   }
 
   .menu-toggle {
@@ -422,6 +492,7 @@ header {
   background: none;
   border: none;
   font-size: 50px; /* حجم أيقونة القائمة */
+  margin-left:30px;
 }
 
 .side-menu {
@@ -577,8 +648,8 @@ header {
 .search-bar {
   flex: 1;                      /* ياخذ مساحة وسط الهيدر */
   display: flex;
-  margin-left: 0;          /* إلغاء الهامش الكبير */
-  width: 100%;             /* ياخذ عرض كامل */
+  margin-left: -150px;          /* إلغاء الهامش الكبير */
+  width: 80%;             /* ياخذ عرض كامل */
   justify-content: center; /* في الوسط */
   padding: 0 10px;    /* في المنتصف */
 }
@@ -609,7 +680,7 @@ header {
   color: white;
   cursor: pointer;
   transition: 0.3s;
-  padding: 14px 20px;      /* زر البحث أكبر */
+  padding: 14px 20px;
   font-size: 32px;
   border-radius: 0 25px 25px 0;
 }
@@ -617,10 +688,9 @@ header {
 .search-bar button:hover {
   background: #444;
 }
-/* الصندوق اللي يطلع تحت البحث */
 #suggestions-box {
   position: absolute;
-  top: 45px; /* تحت الشريط مباشرة */
+  top: 45px;
   background: #1e1e1e;
   border: 1px solid #333;
   border-radius: 0 0 12px 12px;
@@ -642,18 +712,7 @@ header {
 #suggestions-box div:hover {
   background: #333;
 }
-.ad-space {
-  background: #222;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-  width: 90%;             /* ياخذ تقريباً كل العرض */
-  height: 300px;          /* ارتفاع أكبر */
-  font-size: 18px;        /* نص أوضح */
-  border: 2px dashed #777;
-}
+
 .see-more-container {
     display: flex;
     justify-content: flex-end; /* يجعل الزر في أقصى اليمين */
@@ -663,12 +722,12 @@ header {
 .see-more-btn {
     background-color: #1a1a1a;
     color: white;
-    font-weight: bold;
+    font-weight: Arial;
     text-decoration: none;
     transition: background-color 0.3s ease;
     width: 40%;              /* يخلي الزر كبير في الهاتف */
     margin: 15px auto;       /* يتوسط الشاشة */
-    font-size: 35px;         /* خط أكبر وواضح */
+    font-size: 40px;         /* خط أكبر وواضح */
     padding: 16px 0;         /* ارتفاع الزر */
     border-radius: 12px;
     display: flex;           /* تفعيل flex */
@@ -705,6 +764,9 @@ h2 {
   display: flex;
   align-items: center;
   gap: 5px;
+  width:170px;
+  height:80px;
+  margin-left:-200px;
 }
 
 .arrow {
@@ -758,5 +820,17 @@ h2 {
 
 .dropdown.active .arrow {
   transform: rotate(90deg); /* يقلب السهم */
+}
+.ad-space {
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 90%;             /* ياخذ تقريباً كل العرض */
+  height: 300px;          /* ارتفاع أكبر */
+  font-size: 18px;        /* نص أوضح */
+  border: 2px dashed #777;
 }
 }
