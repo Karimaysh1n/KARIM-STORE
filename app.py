@@ -359,9 +359,11 @@ def google_verification():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'sitemap.xml')
-
-
+    return send_from_directory(
+        directory=os.path.abspath(os.path.dirname(__file__)),
+        path='sitemap.xml',
+        mimetype='application/xml'
+    )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
