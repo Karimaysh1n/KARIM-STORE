@@ -7,8 +7,7 @@ from flask_jwt_extended import JWTManager
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import os
-from werkzeug.utils import secure_filename
-
+from werkzeug.utils import secure_filename, send_from_directory
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -358,6 +357,9 @@ def logout():
 def google_verification():
     return "google-site-verification: google5c6f4766bb48684f.html"
 
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory(os.path.dirname(os.path.abspath(__file__)), 'sitemap.xml')
 
 
 

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://karim-store.onrender.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- صفحات ثابتة -->
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_decorations</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_gaming</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_furniture</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_phones</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_houses</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_residences</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_clothes</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_cars</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_services</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://karim-store.onrender.com/see_more_electronics</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- صفحات تفاعلية -->
+  <url>
+    <loc>https://karim-store.onrender.com/sell</loc>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
