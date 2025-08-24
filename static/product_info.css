@@ -236,7 +236,7 @@ hr {
     font-family:Arial;
     text-decoration: underline;
     margin-left:375px;
-    margin-top:-20px;
+    margin-top:90px;
 }
 
 .description-card {
@@ -257,13 +257,13 @@ hr {
     margin-top:-113px;
     margin-left:800px;
     text-decoration: underline;
-    margin-left:900px;
-    margin-top:50px;
+    margin-left:850px;
+    margin-bottom:200px;
 }
 /* صندوق التعليقات */
 .comment-box {
-    margin-left:1150px;
-    margin-top:-200px;
+    margin-left:1050px;
+    margin-top:-520px;
     padding: 20px;
     width: 80%;
     max-width: 600px;
@@ -316,7 +316,7 @@ hr {
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    margin-left:1155px;
+    margin-left:1050px;
     margin-top:40px;
 }
 
