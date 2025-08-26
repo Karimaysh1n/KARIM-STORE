@@ -5,20 +5,16 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="../static/KARIM_STORE_LOGO.png">
 </head>
 
 <body>
 <div class="ad-space">
   <p>إعلان</p>
 </div>
-
 <header>
-    <!-- الروابط -->
-
-
-  <!-- القائمة الجانبية -->
+    <img id="logo" rel="icon"  src="../static/KARIM_STORE_LOGO.png">
 <button class="menu-toggle">☰</button>
-
 <div class="side-menu" id="sideMenu">
   <a href="{{ url_for('home') }}">home-الصفحة الرئيسية🏠</a>
   <a href="{{ url_for('logout') }}">logout-خروج🚶‍♂️</a>

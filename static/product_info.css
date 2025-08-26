@@ -2,12 +2,14 @@ body {
     background-color: #1F1E1C;
 }
 header {
-  margin: 0;
+  width: 30%;                 /* العرض أصغر */
+  height: 60px;
+  margin: 0 auto;              /* يجي بالوسط */
   background: #0f0f0f;
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* توزيع: روابط يسار، بحث في الوسط */
+  justify-content: space-between;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   position: sticky;
   top: 0;
@@ -100,6 +102,67 @@ header {
 
 #suggestions-box div:hover {
   background: #333;
+}
+.menu-toggle {
+  display: block;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 50px;
+  margin-left: 50px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #1c1c1c;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+  transition: left 0.3s ease;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.side-menu a:hover {
+  background: #333;
+}
+
+.side-menu.active {
+  left: 0;
+}
+
+/* الـ Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
 }
 
 .ad-space {
@@ -368,8 +431,9 @@ hr {
 }
 
 .comment-body {
-    font-size: 15px;
+    font-size: 20px;
     color: #ddd;
+    margin-left:-70px;
 }
 
 .no-comments {
@@ -381,13 +445,16 @@ hr {
 /* تخصيص شريط التمرير (scrollbar) */
 .comments-list::-webkit-scrollbar {
     width: 8px;
+    display:none;
 }
 .comments-list::-webkit-scrollbar-thumb {
     background: #4dabf7;
     border-radius: 4px;
+    display:none;
 }
 .comments-list::-webkit-scrollbar-track {
     background: #222;
+    display:none;
 }
 .reply-btn {
     background: transparent;
@@ -396,14 +463,17 @@ hr {
     cursor: pointer;
     margin-top: 8px;
     font-size: 13px;
+    display:none;
 }
 
 .reply-btn:hover {
     text-decoration: underline;
+    display:none;
 }
 
 .reply-form {
     margin-top: 10px;
+    display:none;
 }
 
 .reply-form textarea {
@@ -417,6 +487,7 @@ hr {
     background: #2a2a2a;
     color: white;
     margin-bottom: 6px;
+    display:none;
 }
 
 .reply-form .send-reply {
@@ -426,16 +497,19 @@ hr {
     padding: 6px 12px;
     border-radius: 6px;
     cursor: pointer;
+    display:none;
 }
 
 .reply-form .send-reply:hover {
     background: #1e6fa8;
+    display:none;
 }
 
 .replies {
     margin-top: 10px;
     padding-left: 15px;
     border-left: 2px solid #333;
+    display:none;
 }
 
 .reply-item {
@@ -444,6 +518,7 @@ hr {
     border-radius: 6px;
     margin-bottom: 6px;
     font-size: 14px;
+    display:none;
 }
 
 
@@ -583,4 +658,564 @@ header {
 
 .dropdown.active .arrow {
   transform: rotate(90deg); /* يقلب السهم */
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px; /* يعطي استدارة جميلة */
+}
+
+button:hover {
+    transform: scale(1.05); /* تكبير خفيف */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* ظل */
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  color: white;
+  margin-left:0px;
+  width:60%;
+  margin: 0 auto;
+}
+#logo {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -00px;
+    left:170px;
+}
+@media (max-width: 768px) {
+
+  /* الهيدر نفس ما عندك */
+  .header_object,
+  .search-bar {
+    display: none;
+  }
+  header {
+    padding: 20px 25px;   /* تكبير البادينغ */
+    font-size: 20px;      /* تكبير حجم النص */
+    height: 70px;         /* رفع ارتفاع الهيدر */
+    width:100%;
+  }
+
+  .menu-toggle {
+  display: block;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 50px;
+  margin-left: 0px;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;  /* مخفية */
+  width: 250px;
+  height: 100%;
+  background: #1c1c1c;;
+  transition: left 0.3s ease;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+
+.side-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  padding: 20px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+.side-menu a:hover {
+  background: #333;
+}
+
+
+.menu-toggle {
+  position: relative;
+  z-index: 3000;
+}
+
+/* الـ Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1500;
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.search-bar {
+  flex: 1;                      /* ياخذ مساحة وسط الهيدر */
+  display: flex;
+  margin-left: -200px;          /* إلغاء الهامش الكبير */
+  width: 80%;             /* ياخذ عرض كامل */
+  justify-content: center; /* في الوسط */
+  padding: 0 10px;    /* في المنتصف */
+}
+
+
+.search-bar input {                 /* نفس يوتيوب: نصف عرض الهيدر */
+  max-width: 500px;
+  border: 1px solid #333;
+  border-right: none;
+  background: #121212;
+  color: white;
+  outline: none;
+  width: 85%;              /* يكبر في الهاتف */
+  padding: 14px 16px;      /* padding أكبر */
+  font-size: 18px;         /* خط أكبر */
+  border-radius: 25px 0 0 25px;
+}
+
+.search-bar input::placeholder {
+  color: #888;
+  font-size:32px;
+}
+
+.search-bar button {
+  border: 1px solid #333;
+  border-left: none;
+  background: #2a2a2a;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 14px 20px;
+  font-size: 32px;
+  border-radius: 0 25px 25px 0;
+}
+
+.search-bar button:hover {
+  background: #444;
+}
+#suggestions-box {
+  position: absolute;
+  top: 45px;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 0 0 12px 12px;
+  color: white;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+  width: 90%;              /* أصغر ليتناسب مع الشاشة */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#suggestions-box div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #333;
+}
+
+#suggestions-box div:hover {
+  background: #333;
+}
+
+.see-more-container {
+    display: flex;
+    justify-content: flex-end; /* يجعل الزر في أقصى اليمين */
+    margin-bottom:20px;
+}
+
+.see-more-btn {
+    background-color: #1a1a1a;
+    color: white;
+    font-weight: Arial;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 40%;              /* يخلي الزر كبير في الهاتف */
+    margin: 15px auto;       /* يتوسط الشاشة */
+    font-size: 40px;         /* خط أكبر وواضح */
+    padding: 16px 0;         /* ارتفاع الزر */
+    border-radius: 12px;
+    display: flex;           /* تفعيل flex */
+    align-items: center;     /* محاذاة عمودية في المنتصف */
+    justify-content: center; /* محاذاة أفقية في المنتصف */
+    cursor: pointer;
+    height: 60px;            /* زر أطول */
+}
+
+.see-more-btn:hover {
+    background-color: #FF5200;
+}
+h2 {
+    color: #FF5200;
+    font-family:Arial;
+    font-size:60px;
+    margin-top:0px;
+}
+.dropdown.active .arrow {
+  transform: rotate(90deg); /* يقلب السهم */
+}
+.ad-space {
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 90%;             /* ياخذ تقريباً كل العرض */
+  height: 300px;          /* ارتفاع أكبر */
+  font-size: 18px;        /* نص أوضح */
+  border: 2px dashed #777;
+}
+.wilayas-box {
+  width:200px;
+  height: auto;
+  overflow-y: scroll;
+  background: #1c1c1c;
+  border-radius: 8px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 4 أعمدة */
+  gap: 8px;
+}
+
+.wilayas-box a {
+  background: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: background 0.2s;
+  font-size:40px;
+}
+
+.wilayas-box a:hover {
+  background: #555;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: #2a2a2a;
+  color: white;
+  padding: 10px 16px;
+  font-size: 34px;
+  margin-left:-200px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: -480px;                  /* خليها تبدأ من اليسار مش اليمين */
+  top: 100%;                /* تخليها تنزل تحت الزر مباشرة */
+  background-color: #1e1e1e;
+  min-width: 400px;         /* عرض أدنى */
+  max-height: 400px;        /* ارتفاع مع تمرير */
+  overflow-y: auto;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  border-radius: 6px;
+  z-index: 3000;
+  margin-right:3000px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #333;
+}
+
+/* لما يضاف الكلاس show من JS → تظهر */
+.dropdown-content.show {
+  display: block;
+}
+#logo{
+    display:none;
+}
+#product_name {
+    color: #FF5200;
+    font-family:Arial;
+    margin-left:10px;
+    margin-bottom:100px;
+    font-size:50px;
+}
+#name {
+    font-family=Arial;
+    color:white;
+    margin-left:450px;
+    margin-top:-155px;
+    font-size:50px;
+}
+#product-image {
+    margin-left:250px;
+    margin-top:120px;  /* أو أي ارتفاع ثابت */
+    width:180px;
+    height:700px;
+}
+#information {
+    color: #FF5200;
+    font-family:Arial;
+    margin-left:000px;
+    margin-bottom:00px;
+}
+.keys, .values {
+    margin-left: 0;           /* نشيل الهوامش الكبيرة */
+    margin-top: 50px;       /* الكلام في الوسط */
+    display: block;
+  }
+
+  .values {
+    margin-top:-40px;          /* مسافة بسيطة أسفل المفتاح */
+    margin-left:650px;
+    font-size: 45px;       /* حجم أصغر يناسب الهاتف */
+    font-family:Arial;
+  }
+  .keys{
+    margin-left:110px;
+    font-size: 45px;
+    font-family:Arial;
+  }
+
+  hr {
+    width: 80%;               /* الخط ياخذ عرض أكبر */
+    margin: 20px auto;        /* يكون في الوسط */
+  }
+.email-button {
+    display: block;
+    width: 70%;
+    margin-left:130px;
+    margin-bottom:1000px;
+    font-size: 40px;
+    text-align: center;  /* يخلي النص في المنتصف داخل الزر */
+  }
+.phone-button{
+    display: block;
+    width: 70%;
+    margin-left:130px;
+    margin-top:-350px;
+    font-size: 40px;
+    text-align: center;  /* يخلي النص في المنتصف داخل الزر */
+  }
+#description {
+    font-size: 70px;
+    color: #FF5200;
+    text-transform: uppercase;
+    font-family:Arial;
+    text-decoration: underline;
+    margin-left:250px;
+    margin-top:-1100px;
+}
+
+.description-card {
+    background-color: #1e1e1e; /* لون خلفية البطاقة */
+    color: #ddd;               /* لون النص */
+    padding: 15px;             /* مسافة داخلية */
+    border-radius: 10px;       /* حواف مستديرة */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* ظل */
+    max-width: 800px;          /* عرض البطاقة */
+    line-height: 1.6;          /* تباعد الأسطر */
+    font-family: Arial, sans-serif;
+    font-size:40px;
+    margin-left:90px;
+}
+#comment {
+    color:#FF5200;
+    font-family:Arial;
+    margin-top:50px;
+    margin-left:320px;
+    text-decoration: underline;
+}
+
+.comment-box {
+    margin-left:80px;
+    margin-top:-170px;
+    padding: 20px;
+    width: 1800px;
+    max-width: 800px;
+    background: #1a1a1a;  /* نفس ألوان الموقع الداكنة */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+/* مربع النص */
+.comment-box textarea {
+    width: 95%;
+    margin-left:10px;
+    min-height: 30px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    resize: vertical;
+    font-size: 50px;
+    background: #2b2b2b;
+    color: #fff;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.comment-box textarea:focus {
+    box-shadow: 0 0 8px #0077ff;
+}
+
+/* زر الإرسال */
+.comment-box button {
+    margin-top: 12px;
+    margin-left:320px;
+    padding: 10px 20px;
+    background: #0077ff;
+    color: white;
+    font-size: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.comment-box button:hover {
+    background: #0055cc;
+}
+.comments-card {
+    background: #1a1a1a;
+    color: white;
+    width: 180%;
+    max-width: 800px;
+    height:auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    margin-left:80px;
+    margin-top:40px;
+}
+
+.comments-card h3 {
+    margin-bottom: 120px;
+    font-size: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+    color: #4dabf7;
+}
+
+.comments-list {
+    max-height: 750px;   /* ارتفاع ثابت */
+    overflow-y: auto;    /* Scroll عمودي */
+    padding-right: 10px;
+}
+.comment-body {
+    font-size: 15px;
+    color: #ddd;
+    white-space: pre-wrap;   /* يحافظ على الأسطر */
+    word-wrap: break-word;   /* يكسر الكلمات الطويلة */
+    text-align: left;        /* يخلّي النص يبدأ من اليسار */
+}
+/* تصميم التعليق */
+.comment-item {
+    background: #2a2a2a;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    display: block;          /* يلغي أي محاذاة مرّكزة */
+    text-align: left;        /* يخلّي التعليق يبدأ من اليسار */
+}
+
+.comment-item:hover {
+    transform: scale(1.01);
+}
+
+.comment-header {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 40px;
+    font-family:Arial;
+    color: #4dabf7;
+}
+
+.comment-header span {
+    color: #fff;
+    font-weight: normal;
+    font-family:Arial;
+    font-size:40px;
+}
+
+.comment-body {
+    font-size: 40px;
+    font-family:Arial;
+    color: #ddd;
+    margin-left:-170px;
+}
+
+.no-comments {
+    text-align: center;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* تخصيص شريط التمرير (scrollbar) */
+.comments-list::-webkit-scrollbar {
+    width: 8px;
+    display:none;
+}
+.comments-list::-webkit-scrollbar-thumb {
+    background: #4dabf7;
+    border-radius: 4px;
+    display:none;
+}
+.comments-list::-webkit-scrollbar-track {
+    background: #222;
+}
+.reply-form textarea {
+      font-size: 13px;
+      min-height: 40px;
+      display:none;
+  }
+
+  .reply-form .send-reply {
+      width: 100%;
+      font-size: 13px;
+      padding: 8px;
+      display:none;
+  }
+
+  .reply-btn {
+      font-size: 13px;
+      display:none;
+  }
+
+  .reply-item {
+      font-size: 13px;
+      display:none;
+  }
 }

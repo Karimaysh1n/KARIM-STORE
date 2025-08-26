@@ -476,7 +476,13 @@ header {
 .dropdown-content.show {
   display: block;
 }
-
+#logo {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -00px;
+    left:170px;
+}
 /* تعديلات خاصة بالهاتف فقط */
 /* تعديلات خاصة بالهاتف */
 @media (max-width: 768px) {
@@ -867,5 +873,8 @@ h2 {
 /* لما يضاف الكلاس show من JS → تظهر */
 .dropdown-content.show {
   display: block;
+}
+#logo{
+    display: none;
 }
 }

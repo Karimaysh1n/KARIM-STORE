@@ -10,13 +10,17 @@
   <p>إعلان</p>
 </div>
 <header>
-    <!-- الروابط -->
-    <div class="header_object">
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('sell') }}">Sell</a>
-        <a href="{{ url_for('login') }}">Login</a>
-        <a href="{{ url_for('logout') }}">Logout</a>
-    </div>
+    <img id="logo" rel="icon"  src="../static/KARIM_STORE_LOGO.png">
+<button class="menu-toggle">☰</button>
+<div class="side-menu" id="sideMenu">
+  <a href="{{ url_for('home') }}">home-الصفحة الرئيسية🏠</a>
+  <a href="{{ url_for('logout') }}">logout-خروج🚶‍♂️</a>
+  <a href="{{ url_for('sell') }}">sell-🤑بيع</a>
+  <a href="{{ url_for('login') }}">login-تسجيل😲</a>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
 
     <!-- البحث -->
     <form class="search-bar" method="GET" action="{{ url_for('search') }}">
@@ -28,7 +32,7 @@
     <!-- اختيار الولاية -->
     <div class="dropdown">
         <button class="dropbtn">
-            📍 إختر الولاية
+            إختر الولاية
             <span class="arrow">⏵</span>
         </button>
         <div class="dropdown-content">
@@ -198,72 +202,81 @@
 
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".toggle-replies");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      const replies = btn.closest(".comment-card").querySelector(".replies");
-
-      replies.classList.toggle("show");
-      btn.classList.toggle("open");
-    });
-  });
-});
-function toggleReplyForm(id) {
-    const form = document.getElementById("reply-form-" + id);
-    form.style.display = form.style.display === "none" ? "block" : "none";
+function scrollLeft() {
+  document.getElementById('productContainer').scrollBy({left: -300, behavior: 'smooth'});
 }
-function toggleReplyForm(id) {
-    const form = document.getElementById("reply-form-" + id);
-    form.style.display = form.style.display === "none" ? "block" : "none";
+function scrollRight() {
+  document.getElementById('productContainer').scrollBy({left: 300, behavior: 'smooth'});
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.querySelector(".dropdown");
-  const button = dropdown.querySelector(".dropbtn");
+document.getElementById("searchInput").addEventListener("input", function() {
+    let query = this.value;
+    let suggestionsBox = document.getElementById("suggestions-box");
 
-  button.addEventListener("click", () => {
-    dropdown.classList.toggle("active");
-  });
-
-  // إغلاق القائمة عند الضغط خارجها
-  window.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("active");
+    if (query.length > 1) {
+        fetch(`/search_suggestions?q=${query}`)
+            .then(res => res.json())
+            .then(data => {
+                suggestionsBox.innerHTML = "";
+                if (data.length > 0) {
+                    data.forEach(item => {
+                        let div = document.createElement("div");
+                        div.textContent = item;
+                        div.onclick = () => {
+                            document.getElementById("searchInput").value = item;
+                            suggestionsBox.style.display = "none";
+                        };
+                        suggestionsBox.appendChild(div);
+                    });
+                    suggestionsBox.style.display = "flex";
+                } else {
+                    suggestionsBox.style.display = "none";
+                }
+            });
+    } else {
+        suggestionsBox.style.display = "none";
     }
-  });
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.querySelector(".dropdown");
-  const button = dropdown.querySelector(".dropbtn");
+const menuToggle = document.querySelector('.menu-toggle');
+const sideMenu   = document.getElementById('sideMenu');
+const overlay    = document.getElementById('overlay');
 
-  button.addEventListener("click", () => {
-    dropdown.classList.toggle("active");
-  });
-
-  // إغلاق القائمة عند الضغط خارجها
-  window.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("active");
-    }
-  });
+// فتح القائمة
+menuToggle.addEventListener('click', () => {
+  sideMenu.classList.add('active');
+  overlay.classList.add('active');
 });
-document.addEventListener("DOMContentLoaded", () => {
-  const dropdown = document.querySelector(".dropdown");
-  const button = dropdown.querySelector(".dropbtn");
 
-  // عند الضغط على الزر يفتح/يغلق
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-    dropdown.classList.toggle("active");
-  });
+// إغلاق القائمة عند الضغط على الـ overlay
+overlay.addEventListener('click', () => {
+  sideMenu.classList.remove('active');
+  overlay.classList.remove('active');
+});
 
-  // إذا ضغط خارج القائمة، تنغلق
-  window.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove("active");
-    }
-  });
+// إغلاق القائمة عند الضغط في أي مكان خارجها
+document.addEventListener('click', (event) => {
+  if (
+    sideMenu.classList.contains('active') &&   // القائمة مفتوحة
+    !sideMenu.contains(event.target) &&        // الضغط مش داخل القائمة
+    !menuToggle.contains(event.target)         // الضغط مش على زر الفتح
+  ) {
+    sideMenu.classList.remove('active');
+    overlay.classList.remove('active');
+  }
+});
+const dropdownBtn = document.querySelector('.dropbtn');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+// فتح/إغلاق القائمة عند الضغط
+dropdownBtn.addEventListener('click', (e) => {
+  e.stopPropagation(); // يمنع إغلاقها مباشرة
+  dropdownContent.classList.toggle('show');
+});
+
+// إغلاق القائمة إذا ضغطت براها
+document.addEventListener('click', (e) => {
+  if (!dropdownContent.contains(e.target) && !dropdownBtn.contains(e.target)) {
+    dropdownContent.classList.remove('show');
+  }
 });
 </script>
 
